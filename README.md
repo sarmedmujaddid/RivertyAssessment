@@ -1,58 +1,57 @@
 # Currency Conversion API Testing Framework
-  
-This project is a Behavior-Driven Development (BDD) testing framework for automating REST API testing. It is implemented in C # and utilizes SpecFlow for BDD-style Gherkin syntax and Playwright for API interaction. The framework enables robust testing of currency conversion APIs, with features for verifying status codes, response payloads, and error handling.
+
+This repository contains a BDD testing framework for automating REST API testing, specifically for currency conversion APIs. It is implemented in C# using SpecFlow and Playwright for robust API testing.
 
 ## Features
-- #### Dynamic Request Handling: Supports various HTTP methods (GET, POST, PUT, DELETE, PATCH) with dynamic payloads and headers.
+- **Dynamic Request Handling:** Supports various HTTP methods (GET, POST, PUT, DELETE, PATCH) with dynamic payloads and headers.
 
-- #### JSON-Based Configuration: Reads API descriptions and payload details from JSON files for reusable and modular testing.
+- **JSON-Based Configuration:** Reads API descriptions and payload details from JSON files for reusable and modular testing.
 
-- #### BDD-Style Scenarios: Uses SpecFlow's Gherkin syntax for human-readable test cases, improving collaboration between QA and business teams.
-
-   - Response Verification:
+- **BDD-Style Scenarios:** Uses SpecFlow's Gherkin syntax for human-readable test cases, improving collaboration between QA and business teams.
+- **Response Verification:**
    - Status code validation.
-  
-- #### Verifies specific response fields like success, base currency, rates, and error details.
+   - Verifies specific response fields like success, base currency, rates, and error details.
 
-- #### Playwright Integration: Leverages Playwright for making API calls with features like timeout and header injection.
+- **Playwright Integration:** Leverages Playwright for making API calls with features like timeout and header injection.
 
-- #### Error Handling and Logging: Captures errors during request and response processing with detailed logging.
+- **Error Handling and Logging:** Captures errors during request and response processing with detailed logging.
 
 ## Technologies Used
-- #### SpecFlow: For BDD-style testing and step definitions.
+- **SpecFlow:** For BDD-style testing and step definitions.
 
-- #### Playwright: For API request handling.
+- **Playwright:** For API request handling.
 
-- #### NUnit: For assertions and test validations.
+- **NUnit:** For assertions and test validations.
 
-- #### Newtonsoft.Json: For JSON parsing.
+- **Newtonsoft.Json:** For JSON parsing.
 
-- #### C#: A programming language for implementation.
+- **C#:** A programming language for implementation.
 
 # Installation Instructions
 
 Follow these steps to set up and run the RivertyAssessment project on your local machine:
 
 #### Prerequisites
-- Install .NET SDK
+- Install .NET SDK ([Download Here](https://dotnet.microsoft.com/download))
 
  - Download and install the latest version of the .NET SDK from the official Microsoft .NET website.
  - Ensure the installation includes the .NET CLI for building and running the project.
 
-- Install an IDE
+- Install an IDE ([Download Here](https://visualstudio.microsoft.com/))
 
  - Use an IDE compatible with .NET development:
  - Visual Studio (recommended, with .NET development workload installed).
 
-- Install Git
+- Install Git ([Download Here](https://git-scm.com/))
 
   - Download and install Git from git-scm.com if you don’t already have it installed.
   - Steps to Install and Run
 
+### Prerequisites
 
-- Clone the GitHub repository: Start by cloning the GitHub repository to your local machine using the command:
+- **Clone the GitHub repository:** Start by cloning the GitHub repository to your local machine using the command:
 
-```
+```bash
 git clone https://github.com/sarmedmujaddid/RivertyAssessment.git
 
 cd RivertyAssessment
@@ -68,34 +67,50 @@ cd RivertyAssessment
   - Use the IDE’s integrated tools to restore NuGet packages automatically.
   - Alternatively, restore packages via the command line:
 
-```
+```bash
 dotnet restore
 ```
 
 - Build the Project
 
   - Build the solution to ensure all dependencies are resolved:
-```
+```bash
 dotnet build
 ```
 
 Configuration:
 
-### Disclaimer: Make sure you have your API Key, if not then do not worry, Get a free one from https://fixer.io/documentation. 
+Place your API key in APIDescription.json under the /APIDescription folder.
+Example APIDescription.json structure:
+```json
+{
+  "GETLatest": {
+    "method": "GET",
+    "targetURL": "https://api.example.com/",
+    "endpoint": "latest",
+    "queryparams": "?base=EUR",
+    "headers": "{ }",
+    "payload": "None"
+  }
+}
+```
 
+### Disclaimer
+- The Fixer API key provided in this framework has limited usage on the free plan. Ensure you obtain your API key for extended usage. Visit [Fixer Documentation](https://fixer.io/documentation) for more details.
+- 
 ![apikey](https://github.com/user-attachments/assets/aeb3ae54-ebab-40bc-baa6-0bfeaa188141)
 
-### You need to replace your API Key in APIDescription.json. (Fixer API Key has limited usage in the Free plan) 
+Replace your API Key in APIDescription.json.
 
 ![accesskey](https://github.com/user-attachments/assets/9c1257e7-3ed0-460a-b382-1415431ae2e1)
 
 - Run the Project
 
-Use the Test Explorer to execute tests.
+Use the **Test Explorer** to execute tests.
 
-Run via Command Line:
+**Run via Command Line:**
 
-```
+```bash
 dotnet test
 ```
 
@@ -124,8 +139,8 @@ Integrate with reporting tools like Allure or ExtentReports for detailed executi
 
 # Example Test Scenarios
 ### Feature: Currency Conversion API Testing
-```Gherkins
 
+```gherkin
 @Positive
   Scenario: Verify successful response for default base currency as EUR
     Given I send a GET request to "GETLatest"
