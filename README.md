@@ -93,3 +93,44 @@ Integrate with reporting tools like Allure or ExtentReports for detailed executi
 
 ## 4. HitServiceRequestAndReturnResponse
 - Purpose: Handles API calls dynamically, supporting various HTTP methods and headers.
+
+# Example Test Scenarios
+### Feature: Currency Conversion API Testing
+```
+
+@Positive
+Scenario: Verify successful response conversion rates for USD
+    Given I send a GET request to "GETLatest"
+    Then the response status code should be 200
+    And the payload response should contain success as "true"
+    And the response should contain rates for "USD"
+
+@Negative
+Scenario: Verify error for unsupported currency
+    Given I send a GET request to "GETLatest"
+    Then the response status code should be 400
+    And the payload response error type should contain "Invalid request"
+```
+
+# Project Structure
+
+```
+
+/RivertyAssessment
+│
+├── /Support
+│   ├── RestAPIHelpers.cs       # Contains methods for API requests and validations
+│
+├── /StepDefinitions
+│   ├── CurrencyConversionAPITestingStepDefinitions.cs # Step definitions for BDD scenarios
+│
+├── /Features
+│   ├── CurrencyConversion.feature # Gherkin-based feature file for test scenarios
+│
+├── /APIDescription
+│   ├── APIDescription.json     # JSON file containing API details
+│
+└── README.md                   # Documentation
+
+
+```
