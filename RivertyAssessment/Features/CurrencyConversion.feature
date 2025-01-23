@@ -52,35 +52,12 @@ Scenario: Verify response for missing Access key
     And the payload response error type should contain "missing_access_key"
     And the payload response error info should contain "You have not supplied an API Access Key. [Required format: access_key=YOUR_ACCESS_KEY]"
 
+#Scenarios that are not automated..
 
-    #Scenarios that are not automated..
-@Positive 
-Scenario: Validate that the default base currency (EUR) does not appear in comparison rates.
-    Given I send a GET request to "GETLatest"
-    Then the response status code should be 200
-    And the payload response should contain success as "true"
-    And the rates object should not contain the currency "EUR"
+#Scenario: Validate that the default base currency (EUR) does not appear in comparison rates.
 
-@Positive 
-Scenario: Verify timestamp in the response.
-    Given I send a GET request to "GETLatest"
-    Then the response status code should be 200
-    And the payload response should contain success as "true"
-    And the response timestamp should not differ from the current server time by more than 60 seconds
+#Scenario: Verify timestamp in the response.
 
-@Negative
-Scenario: Verify response for invalid symbols parameter
-    Given I send a GET request to "GETLatestInvalidSymbols"
-    Then the response status code should be 200
-    And the payload error code should be 202
-    And the payload response should contain success as "false"
-    And the payload response error type should contain "invalid_currency_codes"
-    And the payload response error info should contain "You have provided one or more invalid Currency Codes."
-    
-@Negative
-Scenario: Verify behavior when base value is null
-    Given I send a GET request to "GETLatestWithNullBase"
-    Then the response status code should be 200
-    And the payload response should contain success as "true"
-    And the base parameter currency should be "EUR"
+#Scenario: Verify response for invalid symbols parameter
 
+#Scenario: Verify behavior when base value is null
