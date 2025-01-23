@@ -31,11 +31,11 @@ This project is a Behavior-Driven Development (BDD) testing framework for automa
 
 # Installation Instructions
 
-Clone the Repository:
+Clone the GitHub repository: Start by cloning the GitHub repository to your local machine using the command:
+
 ```
 git clone <https://github.com/sarmedmujaddid/RivertyAssessment.git>
 
-cd <repository-folder>
 ```
 
 # Install Dependencies:
