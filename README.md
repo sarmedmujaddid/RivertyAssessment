@@ -31,39 +31,56 @@ This project is a Behavior-Driven Development (BDD) testing framework for automa
 
 # Installation Instructions
 
-Clone the GitHub repository: Start by cloning the GitHub repository to your local machine using the command:
+Follow these steps to set up and run the RivertyAssessment project on your local machine:
+
+#### Prerequisites
+- Install .NET SDK
+
+ - Download and install the latest version of the .NET SDK from the official Microsoft .NET website.
+ - Ensure the installation includes the .NET CLI for building and running the project.
+
+- Install an IDE
+
+ - Use an IDE compatible with .NET development:
+ - Visual Studio (recommended, with .NET development workload installed).
+
+- Install Git
+
+  - Download and install Git from git-scm.com if you don’t already have it installed.
+  - Steps to Install and Run
+
+
+- Clone the GitHub repository: Start by cloning the GitHub repository to your local machine using the command:
 
 ```
-git clone <https://github.com/sarmedmujaddid/RivertyAssessment.git>
+git clone https://github.com/sarmedmujaddid/RivertyAssessment.git
+
+cd RivertyAssessment
 
 ```
 
-# Install Dependencies:
+- Open the Solution in Your IDE
 
-Open the solution (.sln) file in Visual Studio.
-Restore NuGet packages:
+  - Open the file RivertyAssessment.sln in your IDE (e.g., Visual Studio).
+
+# Install Dependencies
+
+  - Use the IDE’s integrated tools to restore NuGet packages automatically.
+  - Alternatively, restore packages via the command line:
 
 ```
 dotnet restore
 ```
 
-Setup Configuration:
+- Build the Project
 
-Place the API description under the /APIDescription.
-Ensure proper JSON structure for the files. For example:
-```Json
-{
-  "GETLatest": {
-    "method": "GET",
-    "targetURL": "https://api.example.com/",
-    "endpoint": "latest",
-    "queryparams": "?base=EUR",
-    "headers": "{ }",
-    "payload": "None"
-  }
-}
-
+  - Build the solution to ensure all dependencies are resolved:
 ```
+dotnet build
+```
+
+Configuration:
+
 ### Disclaimer: Make sure you have your API Key, if not then do not worry, Get a free one from https://fixer.io/documentation. 
 
 ![apikey](https://github.com/user-attachments/assets/aeb3ae54-ebab-40bc-baa6-0bfeaa188141)
@@ -72,10 +89,8 @@ Ensure proper JSON structure for the files. For example:
 
 ![accesskey](https://github.com/user-attachments/assets/9c1257e7-3ed0-460a-b382-1415431ae2e1)
 
+- Run the Project
 
-How to Run Tests
-Run via Visual Studio:
-Open the solution in Visual Studio.
 Use the Test Explorer to execute tests.
 
 Run via Command Line:
