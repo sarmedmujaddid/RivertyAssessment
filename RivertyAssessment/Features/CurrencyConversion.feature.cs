@@ -78,10 +78,12 @@ namespace RivertyAssessment.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify successful response for default base currency as EUR")]
         [NUnit.Framework.CategoryAttribute("Positive")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
         public void VerifySuccessfulResponseForDefaultBaseCurrencyAsEUR()
         {
             string[] tagsOfScenario = new string[] {
-                    "Positive"};
+                    "Positive",
+                    "smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify successful response for default base currency as EUR", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -113,10 +115,12 @@ namespace RivertyAssessment.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify successful response conversion rates for USD")]
         [NUnit.Framework.CategoryAttribute("Positive")]
+        [NUnit.Framework.CategoryAttribute("Regression")]
         public void VerifySuccessfulResponseConversionRatesForUSD()
         {
             string[] tagsOfScenario = new string[] {
-                    "Positive"};
+                    "Positive",
+                    "Regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify successful response conversion rates for USD", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 16
@@ -148,10 +152,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify successful response conversion rates for GBP")]
         [NUnit.Framework.CategoryAttribute("Positive")]
+        [NUnit.Framework.CategoryAttribute("Regression")]
         public void VerifySuccessfulResponseConversionRatesForGBP()
         {
             string[] tagsOfScenario = new string[] {
-                    "Positive"};
+                    "Positive",
+                    "Regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify successful response conversion rates for GBP", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 23
@@ -183,10 +189,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify response for invalid base currency")]
         [NUnit.Framework.CategoryAttribute("Negative")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
         public void VerifyResponseForInvalidBaseCurrency()
         {
             string[] tagsOfScenario = new string[] {
-                    "Negative"};
+                    "Negative",
+                    "Smoke"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify response for invalid base currency", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 30
@@ -221,10 +229,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify response for invalid Access key")]
         [NUnit.Framework.CategoryAttribute("Negative")]
+        [NUnit.Framework.CategoryAttribute("Regression")]
         public void VerifyResponseForInvalidAccessKey()
         {
             string[] tagsOfScenario = new string[] {
-                    "Negative"};
+                    "Negative",
+                    "Regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify response for invalid Access key", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 38
@@ -263,10 +273,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify response for missing Access key")]
         [NUnit.Framework.CategoryAttribute("Negative")]
+        [NUnit.Framework.CategoryAttribute("Regression")]
         public void VerifyResponseForMissingAccessKey()
         {
             string[] tagsOfScenario = new string[] {
-                    "Negative"};
+                    "Negative",
+                    "Regression"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify response for missing Access key", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 47
@@ -297,6 +309,156 @@ this.ScenarioInitialize(scenarioInfo);
 #line 53
     testRunner.And("the payload response error info should contain \"You have not supplied an API Acce" +
                         "ss Key. [Required format: access_key=YOUR_ACCESS_KEY]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Validate that the default base currency (EUR) does not appear in comparison rates" +
+            ".")]
+        [NUnit.Framework.CategoryAttribute("Positive")]
+        public void ValidateThatTheDefaultBaseCurrencyEURDoesNotAppearInComparisonRates_()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Positive"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validate that the default base currency (EUR) does not appear in comparison rates" +
+                    ".", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 58
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 59
+    testRunner.Given("I send a GET request to \"GETLatest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 60
+    testRunner.Then("the response status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 61
+    testRunner.And("the payload response should contain success as \"true\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 62
+    testRunner.And("the rates object should not contain the currency \"EUR\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify timestamp in the response.")]
+        [NUnit.Framework.CategoryAttribute("Positive")]
+        public void VerifyTimestampInTheResponse_()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Positive"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify timestamp in the response.", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 65
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 66
+    testRunner.Given("I send a GET request to \"GETLatest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 67
+    testRunner.Then("the response status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 68
+    testRunner.And("the payload response should contain success as \"true\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 69
+    testRunner.And("the response timestamp should not differ from the current server time by more tha" +
+                        "n 60 seconds", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify response for invalid symbols parameter")]
+        [NUnit.Framework.CategoryAttribute("Negative")]
+        public void VerifyResponseForInvalidSymbolsParameter()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Negative"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify response for invalid symbols parameter", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 72
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 73
+    testRunner.Given("I send a GET request to \"GETLatestInvalidSymbols\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 74
+    testRunner.Then("the response status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 75
+    testRunner.And("the payload error code should be 202", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 76
+    testRunner.And("the payload response should contain success as \"false\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 77
+    testRunner.And("the payload response error type should contain \"invalid_currency_codes\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 78
+    testRunner.And("the payload response error info should contain \"You have provided one or more inv" +
+                        "alid Currency Codes.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Verify behavior when base value is null")]
+        [NUnit.Framework.CategoryAttribute("Negative")]
+        public void VerifyBehaviorWhenBaseValueIsNull()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Negative"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify behavior when base value is null", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 81
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 82
+    testRunner.Given("I send a GET request to \"GETLatestWithNullBase\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 83
+    testRunner.Then("the response status code should be 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 84
+    testRunner.And("the payload response should contain success as \"true\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 85
+    testRunner.And("the base parameter currency should be \"EUR\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
