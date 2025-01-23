@@ -1,0 +1,47 @@
+﻿{
+  //GET REQUESTS
+  "GETLatest": {
+    "method": "GET",
+    "targetURL": "https://data.fixer.io/",
+    "endpoint": "api/latest",
+    "queryparams": "?access_key=6d76188c3db8702763ba284c89179f11&base=eur&symbols=USD, GBP",
+    "headers": " {'Accept':'application/json'} ",
+    "authType": "",
+    "username": "",
+    "password": "",
+    "payload": "None"
+  },
+  "GETLatestWrongBaseCurrency": {
+    "method": "GET",
+    "targetURL": "https://data.fixer.io/",
+    "endpoint": "api/latest",
+    "queryparams": "?access_key=6d76188c3db8702763ba284c89179f11&base=e12",
+    "headers": " {'Accept':'application/json'} ",
+    "authType": "",
+    "username": "",
+    "password": "",
+    "payload": "None"
+  },
+  "GETLatestInvalidAccessKey": {
+    "method": "GET",
+    "targetURL": "https://data.fixer.io/",
+    "endpoint": "api/latest",
+    "queryparams": "?access_key=01d1f0de5ab33e009754edb01848e",
+    "headers": " {'Accept':'application/json'} ",
+    "authType": "",
+    "username": "",
+    "password": "",
+    "payload": "None"
+  },
+  "GETLatestMissingAccessKey": {
+    "method": "GET",
+    "targetURL": "https://data.fixer.io/",
+    "endpoint": "api/latest",
+    "queryparams": "",
+    "headers": " {'Accept':'application/json'} ",
+    "authType": "",
+    "username": "",
+    "password": "",
+    "payload": "None"
+  }
+}
