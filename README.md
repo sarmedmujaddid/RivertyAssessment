@@ -1,6 +1,6 @@
 # Currency Conversion API Testing Framework
   
-This project is a Behavior-Driven Development (BDD) testing framework for automating REST API testing. It utilizes SpecFlow for BDD-style Gherkin syntax, Playwright for API interaction, and is implemented in C#. The framework enables robust testing of currency conversion APIs with features for verifying status codes, response payloads, and error handling.
+This project is a Behavior-Driven Development (BDD) testing framework for automating REST API testing. It is implemented in C # and utilizes SpecFlow for BDD-style Gherkin syntax and Playwright for API interaction. The framework enables robust testing of currency conversion APIs, with features for verifying status codes, response payloads, and error handling.
 
 ## Features
 - #### Dynamic Request Handling: Supports various HTTP methods (GET, POST, PUT, DELETE, PATCH) with dynamic payloads and headers.
@@ -27,7 +27,7 @@ This project is a Behavior-Driven Development (BDD) testing framework for automa
 
 - #### Newtonsoft.Json: For JSON parsing.
 
-- #### C#: Programming language for implementation.
+- #### C#: A programming language for implementation.
 
 # Installation Instructions
 
@@ -43,12 +43,15 @@ cd <repository-folder>
 Open the solution (.sln) file in Visual Studio.
 Restore NuGet packages:
 
+```
 dotnet restore
+```
+
 Setup Configuration:
 
-Place the API description and payload files under the /APIDescription and /Payloads directories, respectively.
+Place the API description under the /APIDescription.
 Ensure proper JSON structure for the files. For example:
-```
+```Json
 {
   "GETLatest": {
     "method": "GET",
@@ -59,12 +62,22 @@ Ensure proper JSON structure for the files. For example:
     "payload": "None"
   }
 }
+
 ```
+### Disclaimer: Make sure you have your API Key, if not then do not worry, Get a free one from https://fixer.io/documentation. 
+
+![apikey](https://github.com/user-attachments/assets/aeb3ae54-ebab-40bc-baa6-0bfeaa188141)
+
+### You need to replace your API Key in APIDescription.json. (Fixer API Key has limited usage in the Free plan) 
+
+![accesskey](https://github.com/user-attachments/assets/9c1257e7-3ed0-460a-b382-1415431ae2e1)
+
+
 How to Run Tests
 Run via Visual Studio:
-
 Open the solution in Visual Studio.
 Use the Test Explorer to execute tests.
+
 Run via Command Line:
 
 ```
@@ -88,7 +101,7 @@ Integrate with reporting tools like Allure or ExtentReports for detailed executi
 - Inputs: statusCode (e.g., 200).
   
 ## 3. VerifyResponse
-- Purpose: Confirms specific content (like success flags, currency rates, error codes) exists in the response payload.
+- Purpose: Confirms specific content (like success flags, currency rates, and error codes) exists in the response payload.
 - Inputs: eResponse (expected response content).
 
 ## 4. HitServiceRequestAndReturnResponse
@@ -96,20 +109,23 @@ Integrate with reporting tools like Allure or ExtentReports for detailed executi
 
 # Example Test Scenarios
 ### Feature: Currency Conversion API Testing
-```
+```Gherkins
 
 @Positive
-Scenario: Verify successful response conversion rates for USD
+  Scenario: Verify successful response for default base currency as EUR
     Given I send a GET request to "GETLatest"
     Then the response status code should be 200
     And the payload response should contain success as "true"
-    And the response should contain rates for "USD"
+    And the base parameter currency should be "EUR"
 
 @Negative
-Scenario: Verify error for unsupported currency
-    Given I send a GET request to "GETLatest"
-    Then the response status code should be 400
-    And the payload response error type should contain "Invalid request"
+Scenario: Verify response for invalid base currency
+    Given I send a GET request to "GETLatestWrongBaseCurrency"
+    Then the response status code should be 200
+    And the payload error code should be 201
+    And the payload response should contain success as "false"
+    And the payload response error type should contain "invalid_base_currency"
+
 ```
 
 # Project Structure
