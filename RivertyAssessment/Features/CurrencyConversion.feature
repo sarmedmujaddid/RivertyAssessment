@@ -54,6 +54,8 @@ Scenario: Verify response for missing Access key
 
 #Scenarios that are not automated..
 
+#Scenario: Verify response with Custom Base (e.g., USD)
+
 #Scenario: Validate that the default base currency (EUR) does not appear in comparison rates.
 
 #Scenario: Verify timestamp in the response.
