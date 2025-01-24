@@ -120,22 +120,65 @@ Integrate with reporting tools like Allure or ExtentReports for detailed executi
 
 # Method Descriptions
 
-## 1. CallServiceRequestAndFetchResponse
+## Request and Response Handling
 
-- Purpose: Sends API requests based on details from APIDescription.json.
-- Inputs: serviceName (e.g., GETLatest).
-- Output: API response is stored for further validation.
+### 1. CallServiceRequestAndFetchResponse
 
-## 2. VerifyStatusCodeFromResponse
-- Purpose: Validates that the API response status code matches the expected value.
-- Inputs: statusCode (e.g., 200).
+- Purpose: This method is used to extract all values of a service from ServiceDescription.json file, and pass those parameters to Helper_Services_Rest > CallRequest method
+  which will actually execute the API request and return the responseSends API requests based on details from APIDescription.json.
+  - Inputs: serviceName (e.g., GETLatest).
+  - Output: API response is stored for further validation.
+ 
+### 2. HitServiceRequestAndReturnResponse
+
+- Purpose: This method allows the user to handle API calls dynamically and call various HTTP methods (Get/Post/Put/Post/Patch/Delete request). 
+  - :param method: Type of request.Get or Post etc..                
+  - :param url: Request URL
+  - :param headers: Headers to call a request (dictionary)
+  - :param payload: payload object
+  - :param authToken: bearer token 
+  - :param timeout: (optional) How long to wait for the server to send response
+  - :return: response - response object generated on calling a request
+
   
-## 3. VerifyResponse
-- Purpose: Confirms specific content (like success flags, currency rates, and error codes) exists in the response payload.
-- Inputs: eResponse (expected response content).
+## Verification Methods
 
-## 4. HitServiceRequestAndReturnResponse
-- Purpose: Handles API calls dynamically, supporting various HTTP methods and headers.
+### 3. VerifyStatusCodeFromResponse
+
+- Purpose: This method verifies if the provided API response matches the expected status code.
+  - :param response: response of type IRestResponse
+  - :param statusCode: statusCode of type int
+  - :return: boolean
+  - Examples: VerifyOkResponse(response, 200)
+
+### 4. VerifyResponse
+
+- Purpose: Confirms specific content (like success flags, currency rates, and error codes) exists in the response payload.
+  - Inputs: eResponse (expected response content).
+
+
+## JSON Data Extraction
+
+### 5. GetValueFromJsonKeyPath
+
+- Retrieves a value from a JSON file based on the provided key path (e.g., root/level1/level2/key). Returns the value as a dictionary.
+
+### 6. GetServiceDescriptionFromJsonFile
+
+- Fetches the complete service description for a specific API from a JSON file, including method, URL, headers, query parameters, and payload.
+
+
+## Directory and Path Utilities
+
+
+### 7. FetchServicesDescriptionDirPath()
+
+- Returns the path to the APIDescription directory where service descriptions are stored.
+
+### 8. FetchServicePayloadPath()
+
+- Returns the path to the Payloads directory where JSON payload files are stored.
+
 
 # Example Test Scenarios
 ### Feature: Currency Conversion API Testing
